@@ -1,10 +1,6 @@
 # Noirina Bot
-
 ## Motif
-
-	Noirina is Magic!
-
+Noirina is Magic!
 ## To do
-
-	* A quoting bot with keyword indexing
-	* A random speech emitter
+* A quoting bot with keyword indexing
+* A random speech emitter
