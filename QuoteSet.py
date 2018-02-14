@@ -44,7 +44,9 @@ class QuoteSet:
                 file.close()
                 inner, msgid_index = other.inner, other.msgid_index
             except ImportError:
-                print("Pickle not installed or file not found, using empty set")
+                print("Pickle not installed, using empty set")
+            except FileNotFoundError:
+                print("Save not found, using empty set")
         self.inner = inner
         self.msgid_index = msgid_index
 
