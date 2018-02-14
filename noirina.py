@@ -3,6 +3,8 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import QuoteHandler
 
+token = open('token.sav').readline()
+
 bot = telegram.Bot(token=)
 updater = Updater(token=)
 
