@@ -3,13 +3,15 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import QuoteHandler
 
-TOKEN = open('token.sav').readline()
+TOKEN = open('token.sav').readline().strip()
 
-bot = telegram.Bot(token=TOKEN)
 updater = Updater(token=TOKEN)
 
-lookup_handler = CommandHandler('lookup', QuoteHandler.lookup, pass_args=True)
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-updater.dispatcher.add_handler(lookup_handler)
+quote_handler = CommandHandler('quote', QuoteHandler.quote)
+
+updater.dispatcher.add_handler(quote_handler)
 
 updater.start_polling()
