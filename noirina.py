@@ -11,7 +11,6 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 quote_handler = CommandHandler('quote', QuoteHandler.quote)
-
 updater.dispatcher.add_handler(quote_handler)
 
 updater.start_polling()

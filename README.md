@@ -32,6 +32,8 @@ Noirina: the bot @noirina_bot, that is, this one
 * a dictionary(`QuoteSet.msgid_index`) maps the index of a quote to quote itself.
 * there is a dictionary(`QuoteSet.inner`) mapping each keyword to a set of quote indices(as in `1.a.i`) which quotes have the specific keyword, note, it is not exclusive, meaning that a quote can appear in multiple sets.
 
+* To-do: use SQL to store the (keyword, message\_id) (message\_id, message) pairs
+
 ###### 1.a.ha Alternative storage
 
 If a quote is not associated with any keyword, it should be stored in an array, and looked up with its index.

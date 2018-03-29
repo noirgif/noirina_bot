@@ -1,20 +1,19 @@
-import QuoteSet
+import quoteset
+import random
 
+# to-do: replace it with a database, and not store it in pwd
 QUOTE_FILENAME = """quotes.sav"""
 
-quotewords = QuoteSet.QuoteSet(pickle=QUOTE_FILENAME)
+quotewords = quoteset.QuoteSet(pickle=QUOTE_FILENAME)
 
-def quote(bot, update):
+def handler(bot, update, args):
     msg = update.message
     quote = msg.reply_to_message
-    keywords = msg.text.split(" ")[1:]
-    # filter out empty strings
-    keywords = [string for string in keywords if string]
+    keywords = args
     if quote:
         if keywords:
             if quote.text:
-                q = Quote.new(keywords, (msg.chat_id, msg.message_id), quote.text)
-                quotewords.add(q)
+                quotewords.emplace(keywords, (msg.chat_id, msg.message_id), quote.text)
             else:
                 bot.send_message(chat_id=msg.chat_id, text="Quote an empty line? Why bother?")
         else: # reply with no keywords
